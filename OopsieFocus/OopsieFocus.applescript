@@ -1,12 +1,86 @@
-(* 
+(*
 OopsieFocus
 
-A script to launch OmniFocus and activate the Quick Entry Panel
-By Shawn Blanc (http://shawnblanc.net)May 20, 2011With code used from the Toggle Twitter script by Red Sweater Software:	http://www.red-sweater.com/blog/1646/toggle-twitterWorks great with FastScripts or Keyboard Maestro:	http://www.red-sweater.com/fastscripts/	http://www.keyboardmaestro.com/main/
+A script to launch OmniFocus and activiate the Quick Entry Panel. 
+
+By Mark Parry
+January 22nd, 2017
+
+Dependacies
+	1) Keyboard Maestro - Not really a dependancy but an easy way to bind this script to the same keyboard shortcut as that which is mapped in OmniFocus. 
+
+How it works
+	Note) When OmniFocus is not running, it isn't catching the the keyboard shortcut in its preferences (because its not running). 
+	1) Create a global keyboard macro in a tool like Keyboard Maestro. 
+		-) Make sure that the keyboard shortcut defined in Keyboard Maestro matches that which is defined in OmniFocus
+	2) With OmniFocus not running type the keyboard shortcut
+	3) Applescript will check to see if OmniFocus is running
+		If running) The script will simply terminate
+		If not running) The script will start OmniFocus and then tell it to display the Quick Entry window
+*)
+-- hattip http://shawnblanc.net/2011/06/oopsiefocus/
+
+(*
+	Handler: LaunchOmniFocus
+	Since: v1.0
+	Type: Utility
+	Description:
+		This launches OmniFocus if it is not already running
+	Returns:
+		Boolean - True if we had to launch OmniFocus
+	Parameters:
+		None
+*)
+on LaunchOmniFocus()
+	set returnThis to false
+	if application "OmniFocus" is not running then
+		tell application "OmniFocus"
+			activate
+		end tell
+		set returnThis to true
+	end if
+	return returnThis
+end LaunchOmniFocus
+
+(*
+	Handler: OpenQuickEntry
+	Since: v1.0
+	Type: Core Logic
+	Description:
+		This handler tells OmniFocus to open the quick entry window
+	Returns:
+		Nothing
+	Parameters:
+		None
+*)
+on OpenQuickEntry()
+	local newTask
+	tell application "OmniFocus"
+		tell quick entry
+			open
+			activate
+			tell application "System Events"
+				key code 36 using shift down
+			end tell
+		end tell
+	end tell
 	
-How it works:
-	Set this script to run using the same keyboard shortut that you use to launch the Quick 
-	Entry Panel in OmniFocus. If you ever try to activate the Quick Entry Panel but 
-	OmniFocus happens to not be running, then this script will launch OmniFocus and bring 
-	up the Quick Entry Panel for you.
-*)set GTDAppName to "OmniFocus"global GTDAppNameset GTDAppToUse to FindRunningGTDApp()if (GTDAppToUse is null) then	set GTDAppToUse to "OmniFocus"end if-- Is OmniFocus running?on AppIsRunning(GTDAppName)	tell application "System Events"		return (count of (application processes whose name is GTDAppName)) is not 0	end tellend AppIsRunning-- If OmniFocus is running, do nothing.-- If OmniFocus is not running, launch it and bring up the Quick Entry Panel.on FindRunningGTDApp()	if AppIsRunning(GTDAppName) then		null	else		tell application "OmniFocus"			activate			tell quick entry				open				make new inbox task				tell application "System Events" to keystroke tab			end tell		end tell	end if	return nullend FindRunningGTDApp
+end OpenQuickEntry
+
+(*
+	Handler: run
+	Since: v1.0
+	Type: Core Logic
+	Description:
+		The “main method” of the application.
+	Returns:
+		None
+	Parameters:
+		None
+*)
+on run {}
+	if LaunchOmniFocus() is true then
+		OpenQuickEntry()
+	end if
+end run
+

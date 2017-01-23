@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Activate</key>
+		<string>Normal</string>
+		<key>CreationDate</key>
+		<real>462143544.23349601</real>
+		<key>Macros</key>
+		<array>
+			<dict>
+				<key>Actions</key>
+				<array>
+					<dict>
+						<key>DisplayKind</key>
+						<string>None</string>
+						<key>IncludeStdErr</key>
+						<true/>
+						<key>MacroActionType</key>
+						<string>ExecuteAppleScript</string>
+						<key>Path</key>
+						<string>/Users/Mark/Developer/My Stuff/Tools_For_OmniFocus.git/OopsieFocus/OopsieFocus.scpt</string>
+						<key>Text</key>
+						<string></string>
+						<key>TimeOutAbortsMacro</key>
+						<true/>
+						<key>TrimResults</key>
+						<false/>
+						<key>TrimResultsNew</key>
+						<false/>
+						<key>UseText</key>
+						<false/>
+					</dict>
+				</array>
+				<key>CreationDate</key>
+				<real>462143544.23349601</real>
+				<key>ModificationDate</key>
+				<real>506822857.79334199</real>
+				<key>Name</key>
+				<string>Ensure OmniFocus is running for QuickEntry</string>
+				<key>Triggers</key>
+				<array>
+					<dict>
+						<key>FireType</key>
+						<string>Pressed</string>
+						<key>KeyCode</key>
+						<integer>49</integer>
+						<key>MacroTriggerType</key>
+						<string>HotKey</string>
+						<key>Modifiers</key>
+						<integer>6144</integer>
+					</dict>
+				</array>
+				<key>UID</key>
+				<string>42F81FF1-B8DD-484F-951A-E83C0EFE3F34</string>
+			</dict>
+		</array>
+		<key>Name</key>
+		<string>Global Macro Group</string>
+		<key>ToggleMacroUID</key>
+		<string>7366FBDC-B674-4DE3-8F07-FE1871294C1E</string>
+		<key>UID</key>
+		<string>DA8512F7-F323-46B1-8319-752E0495CFD0</string>
+	</dict>
+</array>
+</plist>
