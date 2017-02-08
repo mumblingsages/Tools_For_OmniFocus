@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>includeTaskCompletionDate</key>
+	<true/>
+	<key>includeTaskContext</key>
+	<false/>
+	<key>includeTaskEstimatedTime</key>
+	<false/>
+	<key>includeTaskModificationDate</key>
+	<false/>
+	<key>includeTaskNotes</key>
+	<false/>
+	<key>includeTaskStartDate</key>
+	<false/>
+	<key>outputDir</key>
+	<string>~/Documents</string>
+	<key>reportRange</key>
+	<string>Last Week</string>
+</dict>
+</plist>
