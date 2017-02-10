@@ -14,8 +14,6 @@
 	<false/>
 	<key>includeTaskStartDate</key>
 	<false/>
-	<key>outputDir</key>
-	<string>~/Documents</string>
 	<key>reportRange</key>
 	<string>Last Week</string>
 </dict>
