@@ -15,6 +15,6 @@
 	<key>includeTaskStartDate</key>
 	<false/>
 	<key>reportRange</key>
-	<string>Last Week</string>
+	<string>Yesterday</string>
 </dict>
 </plist>
